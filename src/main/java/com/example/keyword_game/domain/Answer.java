@@ -15,10 +15,13 @@ public class Answer {
     @Column(name = "answer_id")
     private Long id;
     private String answer;
+    private int frequency;
     @OneToMany(mappedBy = "answer")
     private List<Keyword> keywords = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "subject_id")
     private Subject subject;
+    @Column(name="keyword_count")
+    private int keywordCount;
 
 }

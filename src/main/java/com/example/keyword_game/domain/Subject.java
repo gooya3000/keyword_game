@@ -16,6 +16,6 @@ public class Subject {
     @Column(name = "subject_id")
     private Long id;
     private String subject;
-    @OneToMany(mappedBy = "answer_id")
+    @OneToMany(mappedBy = "subject")
     private List<Answer> answers = new ArrayList<>();
 }
