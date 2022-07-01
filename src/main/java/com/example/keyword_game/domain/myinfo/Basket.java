@@ -1,5 +1,8 @@
-package com.example.keyword_game.domain;
+package com.example.keyword_game.domain.myinfo;
 
+import com.example.keyword_game.domain.BasicInfo;
+import com.example.keyword_game.domain.myinfo.Member;
+import com.example.keyword_game.domain.quest.Answer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +14,10 @@ public class Basket {
     @Id @GeneratedValue
     @Column(name="basket_id")
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "answer_id")
     private Answer answer;
     @Embedded

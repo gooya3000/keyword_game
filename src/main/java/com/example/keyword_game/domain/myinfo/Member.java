@@ -1,5 +1,6 @@
-package com.example.keyword_game.domain;
+package com.example.keyword_game.domain.myinfo;
 
+import com.example.keyword_game.domain.BasicInfo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Member {
+
     @Id
     @GeneratedValue
     @Column(name="member_id")

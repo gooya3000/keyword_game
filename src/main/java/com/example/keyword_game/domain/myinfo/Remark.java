@@ -1,11 +1,11 @@
-package com.example.keyword_game.domain;
+package com.example.keyword_game.domain.myinfo;
 
+import com.example.keyword_game.domain.BasicInfo;
+import com.example.keyword_game.domain.enumpack.RemarkWhat;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -14,12 +14,11 @@ public class Remark {
     @GeneratedValue
     @Column(name = "remark_id")
     private Long id;
-    @Column(name = "remark_what")
+    @Enumerated(EnumType.STRING)
     private RemarkWhat remarkWhat;
-    @Column(name="remark_what_id")
     @JoinColumns({@JoinColumn(name = "answer_id"), @JoinColumn(name="keyword_id"), @JoinColumn(name="subject_id")})
     private Long remarkWhatId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
     @Embedded

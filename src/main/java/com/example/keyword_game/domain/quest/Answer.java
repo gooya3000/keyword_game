@@ -1,4 +1,4 @@
-package com.example.keyword_game.domain;
+package com.example.keyword_game.domain.quest;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,10 +18,10 @@ public class Answer {
     private int frequency;
     @OneToMany(mappedBy = "answer")
     private List<Keyword> keywords = new ArrayList<>();
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id")
     private Subject subject;
-    @Column(name="keyword_count")
     private int keywordCount;
+    private String contents;
 
 }

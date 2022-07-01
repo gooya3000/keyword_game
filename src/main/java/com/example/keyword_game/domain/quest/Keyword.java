@@ -1,11 +1,9 @@
-package com.example.keyword_game.domain;
+package com.example.keyword_game.domain.quest;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Setter @Getter
@@ -16,7 +14,7 @@ public class Keyword {
     private Long id;
     private String keyword;
     private String sentence;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "answer_id")
     private Answer answer;
 }
